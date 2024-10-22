@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind用于绑定属性</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <img v-bind:src="imgUrl" alt="">
+
+        <a v-bind:href="link">百度一下</a>
+
+        <!--冒号语法绑定属性是 v-bind指令的语法糖-->
+        <img :src="imgUrl" alt="">
+
+    </template>
+
+    <script src="../js/vue.global.js"></script>
+    <script>
+        const App = {
+            template: '#my-app',
+            data() {
+                return {
+                    imgUrl: 'https://inews.gtimg.com/om_bt/O1JcWCIvqWmzHCuuZ_KVNkJEoni0gQSMt7ZSBGZ9eVdUAAA/641',
+                    link: "https://www.baidu.com"
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app');
+    </script>
+</body>
+
+</html>
